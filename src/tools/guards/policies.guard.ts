@@ -31,9 +31,9 @@ export class PoliciesGuard implements CanActivate {
     }
 
     const policyHandlers =
-      this.reflector.get<PolicyHandler[]>(
+      this.reflector.getAllAndOverride<PolicyHandler[]>(
         CHECK_POLICIES_KEY,
-        context.getHandler(),
+        [context.getHandler(), context.getClass()],
       ) || [];
 
     // No policy handlers means no special permission checks needed beyond authentication
