@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ManualsController } from './manuals.controller';
 import { ManualsService } from './manuals.service';
+import { ManualsController } from './manuals.controller';
+import { DatabaseModule } from 'src/databases/database.module';
 
 @Module({
-  controllers: [ManualsController],
+  imports: [DatabaseModule],
   providers: [ManualsService],
+  controllers: [ManualsController]
 })
 export class ManualsModule {}
