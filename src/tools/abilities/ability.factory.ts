@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { user_role } from 'src/users/interfaces/user.interface';
 
+export enum user_role {
+  ADMIN = 'admin',
+  USER = 'user',
+}
 // Define possible actions
 export enum Action {
   Manage = 'manage',
@@ -59,75 +62,8 @@ export class AbilityFactory {
 
     rules.push({
       action: Action.Read,
-      subject: 'Product',
+      subject: 'Manual',
     });
-
-    // Allow users to read fish catalog
-    rules.push({
-      action: Action.Read,
-      subject: 'Fish',
-    });
-
-    rules.push({
-      action: Action.Read,
-      subject: 'Category',
-    });
-
-    rules.push({
-      action: Action.Read,
-      subject: 'Order',
-    });
-
-    rules.push({
-      action: Action.Create,
-      subject: 'Order',
-    });
-
-    rules.push({
-      action: Action.Update,
-      subject: 'Order',
-    });
-
-    rules.push({
-      action: Action.Delete,
-      subject: 'Order',
-    });
-
-    rules.push({
-      action: Action.Read,
-      subject: 'Cart',
-    });
-
-    rules.push({
-      action: Action.Create,
-      subject: 'Cart',
-    });
-
-    rules.push({
-      action: Action.Update,
-      subject: 'Cart',
-    });
-
-    rules.push({
-      action: Action.Delete,
-      subject: 'Cart',
-    });
-
-    rules.push({
-      action: Action.Read,
-      subject: 'User',
-    });
-
-    rules.push({
-      action: Action.Update,
-      subject: 'User',
-    });
-
-    // Allow users to manage their own User-Fish relations
-    rules.push({ action: Action.Read, subject: 'UserFish' });
-    rules.push({ action: Action.Create, subject: 'UserFish' });
-    rules.push({ action: Action.Update, subject: 'UserFish' });
-    rules.push({ action: Action.Delete, subject: 'UserFish' });
 
     return { rules };
   }
