@@ -5,6 +5,9 @@ export enum BlockType {
   IMAGE = 'image',
   GIF = 'gif',
   VIDEO = 'video',
+  H2 = 'h2',
+  H3 = 'h3',
+  LIST = 'list',
 }
 
 export interface ManualBlock {
